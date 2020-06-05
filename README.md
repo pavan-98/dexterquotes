@@ -1,1 +1,1 @@
-# dexterquotes
+# Dexter Random Quote Generator
