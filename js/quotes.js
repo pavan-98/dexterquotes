@@ -6,26 +6,14 @@ function inIframe() {
     }
 }
 
-		var colors = [
-			'#490A3D',
-			'#BD1550',
-			'#E97F02',
-			'#F8CA00',
-			'#8A9B0F',
-			'#69D2E7',
-			'#FA6900',
-			'#16a085',
-			'#27ae60',
-			'#2c3e50',
-			'#f39c12',
-			'#e74c3c',
-			'#9b59b6',
-			'#FB6964',
-			'#342224',
-			'#472E32',
-			'#77B1A9',
-			'#73A857'
-		];
+// Updated color palette for a modern, cleaner theme
+// Using Bootstrap's primary blue and a contrasting white for text when needed.
+var colors = [
+	'#007bff' // Primary blue
+];
+
+// If we want variations, we could add more, but for now, one primary color simplifies things.
+// var secondaryColorsForText = ['#FFFFFF']; // Example if text color needs to change based on background
 
 var quotes = [
     ["Weren't we all crazy in our sleep? What was sleep, after all, but the process by which we dumped our insanity into a dark subconscious pit and came out on the other side ready to eat cereal instead of our neighbor's children?","Dexter Morgan"],
@@ -121,27 +109,34 @@ function getQuote() {
 	randomcolor = Math.floor(Math.random() * colors.length);
     currentQuote = quotes[randomquote][0];
     currentAuthor = quotes[randomquote][1];
+	const tweetQuoteLink = document.getElementById('tweet-quote');
 	if (inIframe()) {
-		$('#tweet-quote').attr('href',`https://twitter.com/intent/tweet?hashtags=quotes&related=aLamm&text=${encodeURIComponent('"' + currentQuote + '" ' + currentAuthor)}`);
+		tweetQuoteLink.setAttribute('href',`https://twitter.com/intent/tweet?hashtags=quotes&related=aLamm&text=${encodeURIComponent('"' + currentQuote + '" ' + currentAuthor)}`);
 	}
 
-	$(document).ready(function () {
-	    $('html body').animate({
-	        backgroundColor: colors[randomcolor],
-	        color: colors[randomcolor]
-	    }, 500);
-	    $('#newquote, .social-icons .fa-twitter').animate({ backgroundColor: colors[randomcolor] }, 500);
-			$('blockquote footer').animate({ color: colors[randomcolor] }, 500);	
-	    $('blockquote').animate({ borderLeftColor: colors[randomcolor] }, 500);
-	    $('#quotetext').animate({ opacity: 0 }, 500, function () {
-	        $(this).animate({ opacity: 1 }, 500);
-	        $(this).text(currentQuote);
-	    });
-	    $('#quotesource').animate({ opacity: 0 }, 500, function () {
-	        $(this).animate({ opacity: 1 }, 500);
-	        $(this).text(currentAuthor);
-	    });
-    });    
+	// Use the first (and currently only) color from the updated palette
+	const selectedColor = colors[0];
+	// The body background is light gray by default from CSS, so we don't need to change it here.
+	// document.body.style.backgroundColor = selectedColor;
+	// document.body.style.color = selectedColor; // This would make text blue, not ideal.
+
+	const newQuoteButton = document.getElementById('newquote');
+	const twitterIcon = document.querySelector('.social-icons .fa-twitter');
+	const blockquoteFooter = document.querySelector('blockquote footer'); // This is blockquote-footer now
+	const blockquote = document.querySelector('blockquote');
+
+	// Elements that should adopt the primary color for their background or border
+	if (newQuoteButton) newQuoteButton.style.backgroundColor = selectedColor;
+	if (twitterIcon) twitterIcon.style.backgroundColor = selectedColor;
+	// blockquote footer color is set by CSS to a muted gray, which is good.
+	// if (blockquoteFooter) blockquoteFooter.style.color = selectedColor; // This would make it blue
+	if (blockquote) blockquote.style.borderLeftColor = selectedColor;
+
+	const quoteTextElement = document.getElementById('quotetext');
+	if (quoteTextElement) quoteTextElement.textContent = currentQuote;
+
+	const quoteSourceElement = document.getElementById('quotesource');
+	if (quoteSourceElement) quoteSourceElement.textContent = currentAuthor;
 }
 
 function openURL(url) {
@@ -150,11 +145,18 @@ function openURL(url) {
 
 getQuote();
 
-$(document).ready(function () {
-    $('#newquote').on('click', getQuote);
-    $('#tweet-quote').on('click', function () {
-        if (!inIframe()) {
-            openURL('https://twitter.com/intent/tweet?hashtags=dexterquotes&related=dexter&text=' + encodeURIComponent('"' + currentQuote + '" ' + currentAuthor));
-        }
-    });
+document.addEventListener('DOMContentLoaded', function() {
+    const newQuoteButton = document.getElementById('newquote');
+    if (newQuoteButton) {
+        newQuoteButton.addEventListener('click', getQuote);
+    }
+
+    const tweetQuoteLink = document.getElementById('tweet-quote');
+    if (tweetQuoteLink) {
+        tweetQuoteLink.addEventListener('click', function () {
+            if (!inIframe()) {
+                openURL('https://twitter.com/intent/tweet?hashtags=dexterquotes&related=dexter&text=' + encodeURIComponent('"' + currentQuote + '" ' + currentAuthor));
+            }
+        });
+    }
 });
