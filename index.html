@@ -1,50 +1,47 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 	   <meta property="og:title" content="Dexter Random Quote Generator">
   <meta property="og:description" content="Famous, Dark, Dumb, Alive - Dexter Quotes">
   <meta property="og:image" content="https://static.next-episode.net/tv-shows-images/huge/dexter.jpg">
-	<link href='https://fonts.googleapis.com/css?family=Raleway:400,700' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.3/animate.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/4.12.0/bootstrap-social.min.css">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-color/2.1.2/jquery.color.min.js"></script>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
 	<link rel="icon" type="image/x-icon" href="favicon.ico"/>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="js/quotes.js"></script>
-    <meta charset="utf-8">
     <title>Dexter Quotes</title>
     <link rel="stylesheet" href="css/styles.css">
     </head>
   <body>
-    <h1 class="dextertitle animate__animated animate__pulse animate__repeat-3 animate__slower" style="color:rgb(255, 255, 255);font-weight:800;text-align:center;font-family: 'Finger Paint', cursive;font-size:60px;">Dexter Morgan Quotes</h1>
-<div class="container">
-	<div class="row">
-		<div class="col-xs-12 col-sm-3"></div>
-		<div class="col-xs-12 col-sm-6 quotebox">
-			<div class="row">
-				<div class="col-xs-12">
-					<blockquote>
-						<i class="fa fa-quote-left quotemark"></i>
-						<h2 id="quotetext"></h2>
-						<footer id="quotesource"></footer>
-					</blockquote>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-xs-12 col-sm-12">
-					<div class="social-icons icon-rounded"><a id="tweet-quote" title="Tweet this quote!" target="_blank"><i class="fa fa-twitter"></i></a>
+    <h1 class="main-title animate__animated animate__fadeInDown">Dexter Morgan Quotes</h1>
+<div class="container mt-5"> <!-- Added Bootstrap margin top utility -->
+	<div class="row justify-content-center"> <!-- Centering the column -->
+		<div class="col-md-8 col-lg-6"> <!-- Adjusted column for better responsiveness on medium/large screens -->
+			<div class="quotebox p-4 p-md-5 shadow-sm"> <!-- Added Bootstrap padding & shadow utility -->
+				<div class="row">
+					<div class="col-12">
+						<blockquote class="blockquote"> <!-- Used Bootstrap blockquote class -->
+							<i class="fa fa-quote-left quotemark"></i>
+							<h2 id="quotetext" class="mb-3"></h2> <!-- Added Bootstrap margin bottom utility -->
+							<footer id="quotesource" class="blockquote-footer"></footer> <!-- Used Bootstrap blockquote-footer class -->
+						</blockquote>
 					</div>
-					<div class="quotebutton"><button class="btn btn-primary" id="newquote">New Quote</button></div>
+				</div>
+				<div class="row mt-4"> <!-- Added Bootstrap margin top utility -->
+					<div class="col-12 text-center"> <!-- Centering buttons/icons -->
+						<div class="social-icons icon-rounded d-inline-block me-3"><a id="tweet-quote" title="Tweet this quote!" target="_blank"><i class="fa fa-twitter"></i></a>
+						</div>
+						<div class="quotebutton d-inline-block"><button class="btn btn-primary btn-lg" id="newquote">New Quote</button> <!-- Added btn-lg for a larger button -->
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="col-xs-12 col-sm-3"></div>
 	</div>
- <p class="animate__animated animate__fadeInDown animate__delay-2s" style="position: fixed;left:0;bottom:0;width:100%;color:rgb(255, 255, 255);text-align:center;font-family: 'Finger Paint', cursive;font-size: 20px;">© Made By Pavan Kalyan Neerukonda</p>
+ <p class="footer-text animate__animated animate__fadeInDown animate__delay-2s">© Made By Pavan Kalyan Neerukonda</p>
   </body>
 </html>

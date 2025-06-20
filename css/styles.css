@@ -1,74 +1,67 @@
-@import url('https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;700&display=swap');
 
-
-body,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p
- { font-family: 'Raleway', sans-serif;
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #f8f9fa; /* Light gray background */
+  color: #212529; /* Dark text color */
 }
 
-h1{font-size:35px;}
-h2{font-size:30px;}
-h3{font-size:25px;}
-p {font-size:16px;}
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+}
 
-body {background:#490A3D;}
+h1 { font-size: 35px; }
+h2 { font-size: 30px; } /* Kept original size, can be adjusted */
+h3 { font-size: 25px; } /* Kept original size, can be adjusted */
+p { font-size: 16px; }
+
 .quotemark {
     position: relative;
-    top: -12px;
+    top: -12px; /* Consider adjusting this based on new font */
     padding-right: 10px;
 }
 
 blockquote {
-  border-left: 10px solid #490A3D;
-  margin: 30px 10px;
-  padding: 10px 30px;
+  border-left: 10px solid #007bff; /* Primary blue */
+  margin: 30px 10px; /* Kept original margin, can be adjusted */
+  padding: 10px 30px; /* Kept original padding, can be adjusted */
 }
-blockquote:before {
-  color: #ccc;
-  line-height: 0.1em;
-  margin-right: 0.25em;
-  vertical-align: -0.4em;
-}
-blockquote h1, h2, h3, p{
-  display: inline;
-}
+/* blockquote:before rule from original might not be needed with Bootstrap's .blockquote class */
+/* blockquote h1, h2, h3, p display:inline from original might not be needed */
+
+/* Styles for #quotesource when it's inside blockquote. Note: .blockquote-footer is used in HTML. */
 blockquote footer {
 	font-size:18px;
 	text-align:right;
-	color:transparent;
+	color: #6c757d; /* Muted text color for footer */
 }
 
 .container {
-	max-height:800px;
-	margin: 10% auto auto auto;
+	/* max-height:800px; */ /* Removed fixed max-height for better responsiveness */
+	margin: 5% auto auto auto; /* Adjusted top margin */
 }
 .quotebox {
-	background:#fff;
-	max-width:500px;
-	min-height:100px;
-	border:1px solid #222;
-	border-radius:5px;
-	margin:10px;
+	background: #fff; /* White background for quote box */
+	max-width: 600px; /* Slightly wider for modern look */
+	min-height: 150px; /* Adjusted min-height */
+	border: 1px solid #dee2e6; /* Lighter border */
+	border-radius: .375rem; /* Bootstrap's default border-radius */
+	margin: 20px auto; /* Centered with more margin */
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15); /* Softer shadow */
 }
 
 .quotebutton {
 	display:inline-block;
-	padding:6px 12px;
+	padding:6px 12px; /* Kept original padding, can be adjusted */
 }
-	#quotesource{margin-top:20px}
+/* #quotesource margin-top:20px; This ID is on a footer element, which is now .blockquote-footer */
 
-.btn {margin-bottom:10px}
+.btn { margin-bottom:10px } /* General btn margin, can be adjusted */
 
 .social-icons {
-	padding:6px 12px;
+	padding:6px 12px; /* Kept original padding, can be adjusted */
 	display:inline-block;
-
 }
 .social-icons .fa {
 	font-size: 1.8em;
@@ -76,43 +69,59 @@ blockquote footer {
 	height: 40px;
 	line-height: 40px;
 	text-align: center;
-	color: #FFF;
+	color: #FFF; /* Text color for the icon itself */
 	-webkit-transition: all 0.3s ease-in-out;
 	-moz-transition: all 0.3s ease-in-out;
 	-ms-transition: all 0.3s ease-in-out;
 	-o-transition: all 0.3s ease-in-out;
 	transition: all 0.3s ease-in-out;
 }
-.social-icons.icon-rounded .fa{
+.social-icons.icon-rounded .fa { /* This class is present in HTML */
 	border-radius:5px;
 }
 .social-icons .fa:hover, .social-icons .fa:active {
-	color: #FFF;
-	-webkit-box-shadow: 1px 1px 3px #333;
-	-moz-box-shadow: 1px 1px 3px #333;
-	box-shadow: 1px 1px 3px #333;
+	color: #FFF; /* Text color on hover */
+	opacity: 0.85; /* Slight opacity change on hover */
 }
 .social-icons .fa-twitter {
-	background-color:#490A3D;
-	border-color:none;}
+	background-color: #007bff; /* Primary blue */
+	/* border-color:none; Ensure no border if Bootstrap adds one */
+}
 
-.social-icons .fa-whatsapp {
-	background-color:#490A3D;
-	border-color:none;}
-
+/* .btn-primary is largely styled by Bootstrap */
 .btn-primary {
-	width: 100px;
-	height: 40px;
-	border:none;
-	background:#490A3D;
-	}
+	background-color: #007bff; /* Ensure primary blue */
+	border-color: #007bff; /* Ensure primary blue */
+}
+
+.btn-primary:hover {
+	background-color: #0056b3; /* Darker blue on hover */
+	border-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Custom class for main title */
+.main-title {
+  color: #212529; /* Dark text color */
+  font-weight: 700;
+  text-align: center;
+  font-size: 48px; /* Adjusted size */
+  margin-bottom: 30px; /* Spacing below title */
+}
+
+/* Custom class for footer text */
+.footer-text {
+  color: #6c757d; /* Muted text color */
+  text-align: center;
+  font-size: 14px; /* Smaller font size */
+  padding: 20px 0; /* More padding for spacing */
+  margin-top: 30px; /* Ensure space from elements above */
+}
 
 @media only screen and (max-width: 768px){
-    #quotetext {font-size:25px; }
-	.container {	margin-right:20px;}
-	/* .dextertitle{font-size: 50px;} */
-    }
+    #quotetext { font-size:25px; }
+    /* .main-title { font-size: 36px; } */
+}
 @media only screen and (max-width: 320px){
-	#quotetext {font-size:18px; }
-	/* .dextertitle{font-size: 30px;} */
-    }
+	#quotetext { font-size:18px; }
+    /* .main-title { font-size: 28px; } */
+}
